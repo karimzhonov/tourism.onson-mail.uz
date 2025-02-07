@@ -26,6 +26,7 @@
   "dependencies": {
     "@nuxtjs/sitemap": "^7.2.4",
     "axios": "^1.7.9",
+    "leaflet": "^1.9.4",
     "three": "^0.173.0"
   }
 }

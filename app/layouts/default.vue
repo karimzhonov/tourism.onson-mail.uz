@@ -3,9 +3,12 @@
 </script>
 
 <template>
-  <div>
     <AppHeader/>
     <slot/>
 <!--    <AppFooter/>-->
-  </div>  
 </template>
+<style>
+body {
+  overflow: hidden;
+}
+</style>

@@ -118,7 +118,7 @@ export default {
 </template>
 <style>
 .header {
-  position: sticky;
+  position: relative;
   background-color: rgb(var(--color-bg));
 }
 </style>

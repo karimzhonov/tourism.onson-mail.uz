@@ -5,6 +5,7 @@ import {getStarfield, drawThreeGeo} from "./utils";
 
 export default {
   name: 'Globus',
+  emits: ['switchToMap'],
   mounted() {
     const w = window.innerWidth;
     const h = window.innerHeight;
@@ -28,7 +29,7 @@ export default {
     const lineMat = new THREE.LineBasicMaterial({
       color: 0x8cd66a,
       transparent: true,
-      opacity: 0.4,
+      opacity: 0.1,
     });
     const edges = new THREE.EdgesGeometry(geometry);
     const line = new THREE.LineSegments(edges, lineMat);
@@ -56,7 +57,7 @@ export default {
 
       const startFov = 40; // Приближенный старт
       const endFov = 75; // Отдаляемся в процессе
-      const startDistance = 4; // Ближе в начале
+      const startDistance = 3; // Ближе в начале
       const endDistance = 6; // Отдаляемся в процессе, затем снова приближаемся
 
       let progress = 0;
@@ -83,7 +84,7 @@ export default {
         }
       }
 
-      animate();
+      animate()
       controls.enabled = false
     }
 
@@ -108,13 +109,13 @@ export default {
 
     window.addEventListener('resize', handleWindowResize, false);
 
-  }
+  },
 }
 
 
 </script>
 <template>
-  <div class="absolute top-0 inset-x-0 h-64 flex items-start">
+  <div class="top-0 inset-x-0 flex items-start relative overflow-hidden" style="height: 100%; background-color: rgb(var(--color-bg))">
     <div
         class="h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
     </div>
@@ -124,8 +125,9 @@ export default {
     <div
         class="h-full md:h-1/2 lg:h-full w-full bg-gradient-to-tr opacity-40 dark:blur-2xl dark:from-[#570cac] dark:opacity-20">
     </div>
+    <div id="globus"></div>
   </div>
-  <div id="globus"></div>
+
 </template>
 <style>
 #globus {

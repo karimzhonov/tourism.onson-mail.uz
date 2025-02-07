@@ -248,7 +248,7 @@ export function drawThreeGeo({json, radius, materalOptions}) {
         const color = new THREE.Color().setHSL(hue, 1.0, 0.5);
         const lineMaterial = new LineMaterial({
             color,
-            linewidth: 2,
+            linewidth: 4,
             fog: true
         });
 
